@@ -1,0 +1,40 @@
+name: {{project_name}}
+
+packages:
+  - features/*
+  - shared/*
+  - core
+  - {{project_name}}
+
+scripts:
+  bootstrap:
+    run: melos bootstrap
+    description: "Install all dependencies in all packages."
+
+  pub_get:
+    run: melos exec -- pub get
+    description: "Run 'pub get' in all packages."
+
+  clean:
+    run: melos exec -- flutter clean
+    description: "Clean all packages."
+
+  test:
+    run: melos exec -- flutter test
+    description: "Run tests in all packages."
+
+  format:
+    run: melos exec -- flutter format .
+    description: "Format all packages."
+
+  analyze:
+    run: melos exec -- flutter analyze
+    description: "Analyze all packages."
+
+  pubspec_overrides:
+    run: dart run scripts/add_publish_to_none.dart
+    description: "Add pubspec_overrides.yaml to all packages."
+
+  analyzer_macros:
+    run: dart run scripts/add_analyzer_experiment.dart
+    description: "Add analyzer macros experimental feature to all packages."
