@@ -220,6 +220,7 @@ void run(HookContext context) async {
         '-t',
         'package',
         'core',
+        '--overwrite',
       ],
       environment: {
         'PATH': Platform.environment['PATH'] ?? '',
@@ -239,6 +240,7 @@ void run(HookContext context) async {
           '-t',
           'package',
           'features/$feature',
+          '--overwrite',
         ],
         environment: {
           'PATH': Platform.environment['PATH'] ?? '',
@@ -259,6 +261,7 @@ void run(HookContext context) async {
           '-t',
           'package',
           'shared/$sharedPackage',
+          '--overwrite',
         ],
         environment: {
           'PATH': Platform.environment['PATH'] ?? '',
