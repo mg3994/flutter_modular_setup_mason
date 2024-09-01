@@ -17,6 +17,7 @@ The **Flutter Modular Setup** template is created by a Mason Brick named **flutt
 ## Usage
 
 To generate a new Flutter project using this template, run the following command:
+
 ```bash
 mason init 
 ```
@@ -35,3 +36,8 @@ mason get
 ```bash
 mason make flutter_modular_setup -o ./my_flutter_project 
 ```
+
+## Remember 
+> package name or say bundle name depend on your input if valid then it will be like `org_name.project_name` <br> 
+---
+> project name will be your input for `project_name` if valid
