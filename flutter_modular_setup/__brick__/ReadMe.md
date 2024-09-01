@@ -17,6 +17,21 @@ The **Flutter Modular Setup** template is created by a Mason Brick named **flutt
 ## Usage
 
 To generate a new Flutter project using this template, run the following command:
+```bash
+mason init 
+```
+# Now add into
+> mason.yaml
+```yaml
+bricks:
+  flutter_modular_setup:
+    path: flutter_modular_setup # path to that brick or may be till take available as hosted on https://brickhub.dev/bricks/flutter_modular_setup
+```
+```bash
+mason get
+```
 
+##### you can change output directory > `-o ./my_flutter_project ` to any directory > `-o ./your_dirctory_name `
 ```bash
 mason make flutter_modular_setup -o ./my_flutter_project 
+```
