@@ -193,8 +193,18 @@ void run(HookContext context) async {
 
   context.logger.info('Creating Flutter project with --overwrite flag...');
 
-  final result = await Process.run(flutterPath,
-      ['create', '--org', orgName, projectName, '--overwrite', '-e'],
+  final result = await Process.run(
+      flutterPath,
+      [
+        'create',
+        '--org',
+        orgName,
+        projectName,
+        '--overwrite',
+        '-e',
+        '--description',
+        'A modular Flutter application scaffold with core, feature, and shared packages for clean architecture.'
+      ],
       environment: {
         'PATH': Platform.environment['PATH'] ?? '',
       },
@@ -221,6 +231,8 @@ void run(HookContext context) async {
         'package',
         'core',
         '--overwrite',
+        '--description',
+        'Core functionalities and services for the modular Flutter application.'
       ],
       environment: {
         'PATH': Platform.environment['PATH'] ?? '',
@@ -241,6 +253,8 @@ void run(HookContext context) async {
           'package',
           'features/$feature',
           '--overwrite',
+          '--description',
+          'Feature package for managing $feature Feature'
         ],
         environment: {
           'PATH': Platform.environment['PATH'] ?? '',
@@ -262,6 +276,8 @@ void run(HookContext context) async {
           'package',
           'shared/$sharedPackage',
           '--overwrite',
+          '--description',
+          'Shared Resources Package for $sharedPackage '
         ],
         environment: {
           'PATH': Platform.environment['PATH'] ?? '',
