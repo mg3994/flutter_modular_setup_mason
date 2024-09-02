@@ -31,7 +31,7 @@ scripts:
     run: melos exec -- flutter analyze
     description: "Analyze all packages."
 
-  pubspec_overrides:
+  publish_to_none:
     run: dart run scripts/add_publish_to_none.dart
     description: "Add pubspec_overrides.yaml to all packages."
 

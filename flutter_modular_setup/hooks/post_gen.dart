@@ -191,7 +191,7 @@ void run(HookContext context) async {
     }
   }
 
-  context.logger.info('Creating Flutter project with --overwrite flag...');
+  context.logger.info('Creating Flutter project without --overwrite flag...');
 
   final result = await Process.run(
       flutterPath,
@@ -299,6 +299,49 @@ void run(HookContext context) async {
         .err('Melos CLI activation failed: ${melosActivateResult.stderr}');
     return;
   }
+
+  ////
+  context.logger.info('Melos Publish to none!');
+
+  // Run melos bootstrap to install dependencies
+  final melosPublishToNoneResult =
+      await Process.run('melos', ['run', 'publish_to_none'],
+          environment: {
+            'PATH': Platform.environment['PATH'] ?? '',
+          },
+          runInShell: true);
+
+  if (melosPublishToNoneResult.exitCode != 0) {
+    context.logger.err(
+        'Melos Adding publish_to: none in pubspec files failed: ${melosPublishToNoneResult.stderr}');
+  } else {
+    context.logger
+        .info('Melos added publish_to: none in pubspec files successfully.');
+  }
+
+  ///
+  ///
+  ////
+  context.logger.info('Melos Analysis add Macro Experimental');
+
+  // Run melos bootstrap to install dependencies
+  final melosAnalysisMacroResult =
+      await Process.run('melos', ['run', 'analyzer_macros'],
+          environment: {
+            'PATH': Platform.environment['PATH'] ?? '',
+          },
+          runInShell: true);
+
+  if (melosAnalysisMacroResult.exitCode != 0) {
+    context.logger.err(
+        'Melos Analysis add Macro Experimental in analysis files failed: ${melosAnalysisMacroResult.stderr}');
+  } else {
+    context.logger.info(
+        'Melos Analysis add Macro Experimental in analysis files successfully.');
+  }
+
+  ///
+  ///
 
   context.logger.info('Melos CLI activated successfully!');
 
