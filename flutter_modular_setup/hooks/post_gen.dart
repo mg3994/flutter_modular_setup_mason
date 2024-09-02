@@ -200,7 +200,7 @@ void run(HookContext context) async {
         '--org',
         orgName,
         projectName,
-        '--overwrite',
+        // '--overwrite',
         '-e',
         '--description',
         'A modular Flutter application scaffold with core, feature, and shared packages for clean architecture.'
@@ -230,7 +230,7 @@ void run(HookContext context) async {
         '-t',
         'package',
         'core',
-        '--overwrite',
+        // '--overwrite',
         '--description',
         'Core functionalities and services for the modular Flutter application.'
       ],
@@ -252,7 +252,7 @@ void run(HookContext context) async {
           '-t',
           'package',
           'features/$feature',
-          '--overwrite',
+          // '--overwrite',
           '--description',
           'Feature package for managing $feature Feature'
         ],
@@ -275,7 +275,7 @@ void run(HookContext context) async {
           '-t',
           'package',
           'shared/$sharedPackage',
-          '--overwrite',
+          // '--overwrite',
           '--description',
           'Shared Resources Package for $sharedPackage '
         ],
@@ -285,5 +285,84 @@ void run(HookContext context) async {
         runInShell: true);
   }
 
+  context.logger.info('Activating Melos CLI...');
+
+  final melosActivateResult =
+      await Process.run(flutterPath, ['pub', 'global', 'activate', 'melos'],
+          environment: {
+            'PATH': Platform.environment['PATH'] ?? '',
+          },
+          runInShell: true);
+
+  if (melosActivateResult.exitCode != 0) {
+    context.logger
+        .err('Melos CLI activation failed: ${melosActivateResult.stderr}');
+    return;
+  }
+
+  context.logger.info('Melos CLI activated successfully!');
+
+  // Run melos bootstrap to install dependencies
+  final melosResult = await Process.run('melos', ['bootstrap'],
+      environment: {
+        'PATH': Platform.environment['PATH'] ?? '',
+      },
+      runInShell: true);
+
+  if (melosResult.exitCode != 0) {
+    context.logger.err('Melos bootstrap failed: ${melosResult.stderr}');
+  } else {
+    context.logger.info('Melos bootstrap completed successfully.');
+  }
+
   context.logger.info('Modular Flutter project generated successfully!');
 }
+
+
+
+//  flutter pub add -h
+// Add dependencies to `pubspec.yaml`.
+
+// Invoking `dart pub add foo bar` will add `foo` and `bar` to `pubspec.yaml`
+// with a default constraint derived from latest compatible version.
+
+// Add to dev_dependencies by prefixing with "dev:".
+
+// Make dependency overrides by prefixing with "override:".
+
+// Add packages with specific constraints or other sources by giving a descriptor
+// after a colon.
+
+// For example:
+//   * Add a hosted dependency at newest compatible stable version:
+//     `flutter pub add foo`
+//   * Add a hosted dev dependency at newest compatible stable version:
+//     `flutter pub add dev:foo`
+//   * Add a hosted dependency with the given constraint
+//     `flutter pub add foo:^1.2.3`
+//   * Add multiple dependencies:
+//     `flutter pub add foo dev:bar`
+//   * Add a path dependency:
+//     `flutter pub add 'foo:{"path":"../foo"}'`
+//   * Add a hosted dependency:
+//     `flutter pub add 'foo:{"hosted":"my-pub.dev"}'`
+//   * Add an sdk dependency:
+//     `flutter pub add 'foo:{"sdk":"flutter"}'`
+//   * Add a git dependency:
+//     `flutter pub add 'foo:{"git":"https://github.com/foo/foo"}'`
+//   * Add a dependency override:
+//     `flutter pub add 'override:foo:1.0.0'`
+//   * Add a git dependency with a path and ref specified:
+//     `flutter pub add \
+//       'foo:{"git":{"url":"../foo.git","ref":"<branch>","path":"<subdir>"}}'`
+
+// Usage: dart pub add [options] [<section>:]<package>[:descriptor] [<section>:]<package2>[:descriptor] ...]
+// -h, --help               Print this usage information.
+//     --[no-]offline       Use cached packages instead of accessing the network.
+// -n, --dry-run            Report what dependencies would change but don't change any.
+//     --[no-]precompile    Build executables in immediate dependencies.
+// -C, --directory=<dir>    Run this in the directory <dir>.
+
+// Run "dart help" to see global options.
+// See https://dart.dev/tools/pub/cmd/pub-add for detailed documentation.
+// PS C:\Users\DEEPAK SHARMA\OneDrive\Desktop\modular_flutter_clean_arch\flutter

@@ -38,3 +38,7 @@ scripts:
   analyzer_macros:
     run: dart run scripts/add_analyzer_experiment.dart
     description: "Add analyzer macros experimental feature to all packages."
+
+  dependency_adder:
+    run: dart run scripts/dependency_adder.dart
+    description: "Add dependencies and dev_dependencies to all packages."
