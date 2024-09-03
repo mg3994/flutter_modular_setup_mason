@@ -9,8 +9,8 @@ void main() {
 
   // Define the flutter_intl configuration to be added
   final String flutterIntlConfig = '''
-  flutter_intl:
-    enabled: true
+flutter_intl:
+  enabled: true
 ''';
 
   for (final dirPath in directories) {
@@ -26,23 +26,14 @@ void main() {
         continue;
       }
 
-      // Find the position to insert the flutter_intl configuration
-      final List<String> lines = contents.split('\n');
-      int index = lines.lastIndexOf('flutter:');
+      // Append flutter_intl configuration at the end of the file
+      pubspecFile.writeAsStringSync(
+        '\n$flutterIntlConfig',
+        mode: FileMode.append,
+      );
 
-      if (index != -1) {
-        // Add flutter_intl under the flutter: tag
-        lines.insert(index + 1, flutterIntlConfig.trim());
-        pubspecFile.writeAsStringSync(lines.join('\n'));
-        print(
-            'Added flutter_intl configuration under flutter: tag in $dirPath/pubspec.yaml');
-      } else {
-        // If 'flutter:' tag is not found, append flutter_intl at the end
-        pubspecFile.writeAsStringSync('\n$flutterIntlConfig',
-            mode: FileMode.append);
-        print(
-            'Added flutter_intl configuration to the end of $dirPath/pubspec.yaml');
-      }
+      print(
+          'Appended flutter_intl configuration to the end of $dirPath/pubspec.yaml');
     } else {
       print('File $dirPath/pubspec.yaml does not exist');
     }
