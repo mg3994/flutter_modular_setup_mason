@@ -115,6 +115,7 @@ void run(HookContext context) async {
     ['run', 'add_dependencies_to_l10n'],
     ['bootstrap'],
     ['run', 'add_flutter_intl'],
+    ['run', 'generate:l10n'],
   ];
 
   for (var command in melosCommands) {
