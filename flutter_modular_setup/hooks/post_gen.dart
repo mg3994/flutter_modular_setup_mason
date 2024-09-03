@@ -305,7 +305,6 @@ void run(HookContext context) async {
   ////
   context.logger.info('Melos Publish to none!');
 
-  
   final melosPublishToNoneResult =
       await Process.run('melos', ['run', 'publish_to_none'],
           environment: {
@@ -326,7 +325,6 @@ void run(HookContext context) async {
   ////
   context.logger.info('Melos Analysis add Macro Experimental');
 
-  
   final melosAnalysisMacroResult =
       await Process.run('melos', ['run', 'analyzer_macros'],
           environment: {
@@ -346,7 +344,6 @@ void run(HookContext context) async {
   ///
   context.logger.info('Melos Features Add Dependency');
 
- 
   final melosFeatureDependencyResult =
       await Process.run('melos', ['run', 'add_dependencies_to_features'],
           environment: {
@@ -363,11 +360,10 @@ void run(HookContext context) async {
 
   ///
   ///
-  
-   ///
+
+  ///
   context.logger.info('Melos Features Add Dev Dependency');
 
- 
   final melosFeatureDevDependencyResult =
       await Process.run('melos', ['run', 'add_dev_dependencies_to_features'],
           environment: {
@@ -383,12 +379,11 @@ void run(HookContext context) async {
   }
 
   ///
-  
+
   ///
-   ///
+  ///
   context.logger.info('Melos Core Add Dependency');
 
- 
   final melosCoreDependencyResult =
       await Process.run('melos', ['run', 'add_dependencies_to_core'],
           environment: {
@@ -408,13 +403,11 @@ void run(HookContext context) async {
   ///
   ///
 
-
-   ///
+  ///
   context.logger.info('Melos Shared L10n Add Dependency');
 
- 
   final melosSL10nDependencyResult =
-      await Process.run('melos', ['run', 'add_dependencies_to_core'],
+      await Process.run('melos', ['run', 'add_dependencies_to_l10n'],
           environment: {
             'PATH': Platform.environment['PATH'] ?? '',
           },
@@ -440,6 +433,19 @@ void run(HookContext context) async {
     context.logger.err('Melos bootstrap failed: ${melosResult.stderr}');
   } else {
     context.logger.info('Melos bootstrap completed successfully.');
+  }
+
+  final melosSL10naddTagDependencyResult =
+      await Process.run('melos', ['run', 'add_flutter_intl'],
+          environment: {
+            'PATH': Platform.environment['PATH'] ?? '',
+          },
+          runInShell: true);
+  if (melosSL10naddTagDependencyResult.exitCode != 0) {
+    context.logger.err(
+        'Melos Shared L10n Add Tag Dependency failed: ${melosSL10naddTagDependencyResult.stderr}');
+  } else {
+    context.logger.info('Melos Shared L10n Tag Added  successfully.');
   }
 
   context.logger.info('Modular Flutter project generated successfully!'); //

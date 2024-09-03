@@ -1,29 +1,29 @@
-name: {{project_name}}
+name: my_flutter_projecttts
 
 packages:
-  - {{project_name}}/features/*
-  - {{project_name}}/shared/*
-  - {{project_name}}/core
-  - {{project_name}}
+  - my_flutter_projecttts/features/*
+  - my_flutter_projecttts/shared/*
+  - my_flutter_projecttts/core
+  - my_flutter_projecttts
 
 categories:
   features:
-    - {{project_name}}/features/*
+    - my_flutter_projecttts/features/*
   shared:
-    - {{project_name}}/shared/*
+    - my_flutter_projecttts/shared/*
   core:
-    - {{project_name}}/core
+    - my_flutter_projecttts/core
   project:
-    - {{project_name}}
+    - my_flutter_projecttts
   # seprated Shared
   components:
-    - {{project_name}}/shared/components
+    - my_flutter_projecttts/shared/components
   dependency:
-    - {{project_name}}/shared/packages
+    - my_flutter_projecttts/shared/packages
   l10n:
-    - {{project_name}}/shared/l10n
+    - my_flutter_projecttts/shared/l10n
   preferences:
-    - {{project_name}}/shared/preferences
+    - my_flutter_projecttts/shared/preferences
 
 scripts:
   bootstrap:
