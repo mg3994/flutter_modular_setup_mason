@@ -93,7 +93,7 @@ scripts:
       melos exec --category="l10n" -- flutter pub add --dev intl_utils
     description: "Add dependencies to all packages in the core category."
   add_flutter_intl:
-    run:  melos exec --category="l10n" dart run scripts/add_flutter_intl.dart
+    run:  melos exec --category="l10n" -- dart run scripts/add_flutter_intl.dart
     description: "Add tag Flutter Intl"
   generate:l10n:
     run: |
