@@ -263,7 +263,7 @@ void run(HookContext context) async {
   }
 
   // Create shared packages
-  final sharedPackages = ['preferences', 'i10n', 'packages', 'components'];
+  final sharedPackages = ['preferences', 'l10n', 'packages', 'components'];
   for (var sharedPackage in sharedPackages) {
     final sharedPath = '$projectName/shared/$sharedPackage';
     Process.runSync(
@@ -300,10 +300,12 @@ void run(HookContext context) async {
     return;
   }
 
+  context.logger.info('Melos CLI activated successfully!');
+
   ////
   context.logger.info('Melos Publish to none!');
 
-  // Run melos bootstrap to install dependencies
+  
   final melosPublishToNoneResult =
       await Process.run('melos', ['run', 'publish_to_none'],
           environment: {
@@ -324,7 +326,7 @@ void run(HookContext context) async {
   ////
   context.logger.info('Melos Analysis add Macro Experimental');
 
-  // Run melos bootstrap to install dependencies
+  
   final melosAnalysisMacroResult =
       await Process.run('melos', ['run', 'analyzer_macros'],
           environment: {
@@ -342,8 +344,90 @@ void run(HookContext context) async {
 
   ///
   ///
+  context.logger.info('Melos Features Add Dependency');
 
-  context.logger.info('Melos CLI activated successfully!');
+ 
+  final melosFeatureDependencyResult =
+      await Process.run('melos', ['run', 'add_dependencies_to_features'],
+          environment: {
+            'PATH': Platform.environment['PATH'] ?? '',
+          },
+          runInShell: true);
+
+  if (melosFeatureDependencyResult.exitCode != 0) {
+    context.logger.err(
+        'Melos Features Add Dependency failed: ${melosFeatureDependencyResult.stderr}');
+  } else {
+    context.logger.info('Melos Features Added Dependency successfully.');
+  }
+
+  ///
+  ///
+  
+   ///
+  context.logger.info('Melos Features Add Dev Dependency');
+
+ 
+  final melosFeatureDevDependencyResult =
+      await Process.run('melos', ['run', 'add_dev_dependencies_to_features'],
+          environment: {
+            'PATH': Platform.environment['PATH'] ?? '',
+          },
+          runInShell: true);
+
+  if (melosFeatureDevDependencyResult.exitCode != 0) {
+    context.logger.err(
+        'Melos Features Add Dev Dependency failed: ${melosFeatureDevDependencyResult.stderr}');
+  } else {
+    context.logger.info('Melos Features Added Dev Dependency successfully.');
+  }
+
+  ///
+  
+  ///
+   ///
+  context.logger.info('Melos Core Add Dependency');
+
+ 
+  final melosCoreDependencyResult =
+      await Process.run('melos', ['run', 'add_dependencies_to_core'],
+          environment: {
+            'PATH': Platform.environment['PATH'] ?? '',
+          },
+          runInShell: true);
+
+  if (melosCoreDependencyResult.exitCode != 0) {
+    context.logger.err(
+        'Melos Core Add Dependency failed: ${melosCoreDependencyResult.stderr}');
+  } else {
+    context.logger.info('Melos Core Added Dependency successfully.');
+  }
+
+  ///
+  ///
+  ///
+  ///
+
+
+   ///
+  context.logger.info('Melos Shared L10n Add Dependency');
+
+ 
+  final melosSL10nDependencyResult =
+      await Process.run('melos', ['run', 'add_dependencies_to_core'],
+          environment: {
+            'PATH': Platform.environment['PATH'] ?? '',
+          },
+          runInShell: true);
+
+  if (melosSL10nDependencyResult.exitCode != 0) {
+    context.logger.err(
+        'Melos Shared L10n Add Dependency failed: ${melosSL10nDependencyResult.stderr}');
+  } else {
+    context.logger.info('Melos Shared L10n Added Dependency successfully.');
+  }
+
+  ///
 
   // Run melos bootstrap to install dependencies
   final melosResult = await Process.run('melos', ['bootstrap'],
@@ -358,7 +442,7 @@ void run(HookContext context) async {
     context.logger.info('Melos bootstrap completed successfully.');
   }
 
-  context.logger.info('Modular Flutter project generated successfully!');
+  context.logger.info('Modular Flutter project generated successfully!'); //
 }
 
 

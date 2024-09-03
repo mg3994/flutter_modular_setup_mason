@@ -17,7 +17,13 @@ The **Flutter Modular Setup** template is created by a Mason Brick named **flutt
 ## Usage
 
 To generate a new Flutter project using this template, run the following command:
+##### 🎯 Activate from [https://pub.dev](https://pub.dev/packages/mason_cli)
+```bash
 
+dart pub global activate mason_cli
+```
+
+##### 🚀 Initialize mason
 ```bash
 mason init 
 ```

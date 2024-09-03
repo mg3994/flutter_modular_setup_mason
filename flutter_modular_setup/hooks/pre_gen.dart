@@ -29,15 +29,16 @@ void run(HookContext context) async {
   }
 
   // Validate and rectify projectName
-  final validProjectNamePattern = RegExp(r'^[a-zA-Z0-9_]+$');
+  final validProjectNamePattern = RegExp(r'^[a-z0-9_]+$');
   if (projectName == null || !validProjectNamePattern.hasMatch(projectName)) {
     context.logger.err(
         'Invalid project_name format. It should only contain letters, numbers, and underscores.');
-    context.vars['project_name'] = 'my_flutter_project'; // Provide a default
+    context.vars['project_name'] =
+        'my_flutter_project'.snakeCase; // Provide a default
     context.logger
         .info('Rectified project_name to: ${context.vars['project_name']}');
   } else {
-    context.logger.info('project_name is valid.');
+    context.logger.info('Project Name :${projectName} is valid.');
   }
 
   // Additional logic for other setup or preprocessing can be added here
