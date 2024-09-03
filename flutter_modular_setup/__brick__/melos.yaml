@@ -64,7 +64,7 @@ scripts:
     
   add_dependencies_to_features:
     run: |
-      melos exec --category="features" -- flutter pub add core --path=../../core
+      melos exec --category="features" -- flutter pub add core --path=../../core &&
       melos exec --category="features" -- flutter pub add packages --path=../../packages
     description: "Add dependencies to all packages in the features category."
 
@@ -76,7 +76,7 @@ scripts:
 
   add_dependencies_to_core:
     run: |
-      melos exec --category="core" -- flutter pub add packages --path=../shared/packages
+      melos exec --category="core" -- flutter pub add packages --path=../shared/packages &&
       melos exec --category="core" -- flutter pub add preferences --path=../shared/preferences
     description: "Add dependencies to all packages in the core category."
 
@@ -87,17 +87,17 @@ scripts:
 
   add_dependencies_to_l10n:
     run: |
-      melos exec --category="l10n" -- flutter pub add intl
-      melos exec --category="l10n" -- flutter pub add flutter_localizations --sdk=flutter
-      melos exec --category="l10n" -- flutter pub add  packages --path=../packages 
-      melos exec --category="l10n" -- flutter pub add --dev intl_utils
+      melos exec --category="l10n" -- flutter pub add intl &&
+      melos exec --category="l10n" -- flutter pub add flutter_localizations --sdk=flutter &&
+      melos exec --category="l10n" -- flutter pub add  packages --path=../packages  &&
+      melos exec --category="l10n" -- flutter pub add --dev intl_utils 
     description: "Add dependencies to all packages in the core category."
   add_flutter_intl:
     run:  melos exec --category="l10n" -- dart run scripts/add_flutter_intl.dart
     description: "Add tag Flutter Intl"
   generate:l10n:
     run: |
-      melos exec --category="l10n" -- dart run scripts/delete_generated_files.dart
-      melos exec --category="l10n" -- flutter pub get 
-      melos exec --category="l10n" -- flutter pub run intl_utils:generate
+      melos exec --category="l10n" -- dart run scripts/delete_generated_files.dart &&
+      melos exec --category="l10n" -- flutter pub get &&
+      melos exec --category="l10n" -- flutter pub run intl_utils:generate &&
     description: "Clean And Generate Locales"
