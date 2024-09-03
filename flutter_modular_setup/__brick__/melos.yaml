@@ -64,7 +64,7 @@ scripts:
     
   add_dependencies_to_features:
     run: |
-      melos exec --category="features" -- flutter pub add core --path=../../core && melos exec --category="features" -- flutter pub add packages --path=../../../packages
+      melos exec --category="features" -- flutter pub add core --path=../../core && melos exec --category="features" -- flutter pub add packages --path=../../shared/packages
     description: "Add dependencies to all packages in the features category."
 
   add_dev_dependencies_to_features:
