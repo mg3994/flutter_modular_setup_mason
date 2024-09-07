@@ -109,10 +109,12 @@ void run(HookContext context) async {
   final melosCommands = [
     ['run', 'publish_to_none'],
     ['run', 'analyzer_macros'],
+    ['run', 'add_dependencies_to_packages'],
     ['run', 'add_dependencies_to_features'],
     ['run', 'add_dev_dependencies_to_features'],
     ['run', 'add_dependencies_to_core'],
     ['run', 'add_dependencies_to_l10n'],
+    ['run', 'add_dependencies_to_$projectName'],
     ['bootstrap'],
     ['run', 'add_flutter_intl'],
     ['run', 'generate:l10n'],
