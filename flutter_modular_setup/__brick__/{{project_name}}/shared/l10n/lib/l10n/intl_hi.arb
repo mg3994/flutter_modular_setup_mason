@@ -1,0 +1,152 @@
+{
+  "@@locale": "hi",
+  "app_title": "स्थानीयकरण उदाहरण",
+  "user_greeting": "{gender, select, male{नमस्ते श्री. {name}} female{नमस्ते सुश्री. {name}} other{नमस्ते {name}}}",
+  "@user_greeting": {
+    "description": "लिंग के आधार पर अभिवादन संदेश"
+  },
+  "number_of_apples": "{count, plural, =0{कोई सेब नहीं} =1{एक सेब} other{{count} सेब}}",
+  "@number_of_apples": {
+    "description": "सेब की संख्या"
+  },
+  "price_display": "कीमत {value, currency, ::currency/USD} है",
+  "@price_display": {
+    "description": "USD में कीमत"
+  },
+  "current_date": "आज की तारीख है {date, date, ::yMMMMd}",
+  "@current_date": {
+    "description": "फॉर्मेटेड तारीख"
+  },
+  "welcome_message": "हमारे ऐप में आपका स्वागत है, {name}!",
+  "@welcome_message": {
+    "description": "नाम के साथ स्वागत संदेश"
+  },
+  "internet_connected": "जुड़ा हुआ: {connectionType}",
+  "@internet_connected": {
+    "description": "जब ऐप इंटरनेट से जुड़ा होता है तो दिखाए जाने वाला संदेश। 'connectionType' नेटवर्क कनेक्शन का प्रकार है (जैसे, Wi-Fi, मोबाइल डेटा)।"
+  },
+  "internet_disconnected": "जुड़ा नहीं है",
+  "@internet_disconnected": {
+    "description": "जब ऐप ऑफ़लाइन होता है तो दिखाए जाने वाला संदेश।"
+  },
+  "vpn_restriction": "VPN अनुमत नहीं है",
+  "@vpn_restriction": {
+    "description": "जब ऐप VPN का उपयोग करता है तो दिखाए जाने वाला संदेश।"
+  },
+  "status_checking": "स्थिति की जांच कर रहे हैं",
+  "@status_checking": {
+    "description": "यह दर्शाता है कि ऐप उपयोगकर्ता के खाते या कनेक्शन की वर्तमान स्थिति की जांच कर रहा है।"
+  },
+  "account_suspended": "खाता बैन किया गया",
+  "@account_suspended": {
+    "description": "जब किसी उपयोगकर्ता का खाता बैन किया गया हो तो दिखाए जाने वाला संदेश।"
+  },
+  "connection_issue": "जोड़ने में असमर्थ",
+  "@connection_issue": {
+    "description": "जब ऐप सर्वर से कनेक्शन स्थापित करने में असमर्थ होता है तो दिखाए जाने वाला संदेश।"
+  },
+  "app_maintenance": "ऐप रखरखाव में है",
+  "@app_maintenance": {
+    "description": "जब ऐप रखरखाव के कारण अस्थायी रूप से अनुपलब्ध होता है तो दिखाए जाने वाला संदेश।"
+  },
+  "retry_action": "फिर से प्रयास करें",
+  "@retry_action": {
+    "description": "असफलता के बाद किसी क्रिया को फिर से प्रयास करने के लिए बटन लेबल।"
+  },
+  "cancel_action": "रद्द करें",
+  "@cancel_action": {
+    "description": "क्रिया को रद्द करने के लिए बटन लेबल।"
+  },
+  "logout_action": "लॉग आउट",
+  "@logout_action": {
+    "description": "ऐप से लॉग आउट करने के लिए बटन लेबल।"
+  },
+  "loading_message": "लोड हो रहा है...",
+  "@loading_message": {
+    "description": "जब सामग्री या डेटा लोड हो रहा होता है तब दिखाए जाने वाला संदेश।"
+  },
+  "no_internet_message": "कोई इंटरनेट कनेक्शन नहीं",
+  "@no_internet_message": {
+    "description": "जब कोई इंटरनेट कनेक्शन उपलब्ध नहीं होता है तो दिखाए जाने वाला संदेश।"
+  },
+  "session_expiry_message": "सत्र समाप्त हो गया",
+  "@session_expiry_message": {
+    "description": "जब उपयोगकर्ता का सत्र समाप्त हो जाता है और उन्हें फिर से लॉगिन करना होता है तो दिखाए जाने वाला संदेश।"
+  },
+  "return_greeting": "वापसी पर स्वागत है",
+  "@return_greeting": {
+    "description": "जब कोई उपयोगकर्ता ऐप में लौटता है तो दिखाए जाने वाला स्वागत संदेश।"
+  },
+  "proceed_button": "जारी रखें",
+  "@proceed_button": {
+    "description": "अगले चरण पर जारी रखने के लिए बटन लेबल।"
+  },
+  "dark_mode_option": "डार्क मोड",
+  "@dark_mode_option": {
+    "description": "ऐप को डार्क मोड में बदलने का विकल्प।"
+  },
+  "light_mode_option": "लाइट मोड",
+  "@light_mode_option": {
+    "description": "ऐप को लाइट मोड में बदलने का विकल्प।"
+  },
+  "logout_confirmation_message": "क्या आप वाकई लॉग आउट करना चाहते हैं?",
+  "@logout_confirmation_message": {
+    "description": "लॉग आउट से संबंधित पुष्टि संदेश।"
+  },
+  "delete_confirmation_message": "क्या आप वाकई इसे हटाना चाहते हैं?",
+  "@delete_confirmation_message": {
+    "description": "आइटम को हटाने के लिए पुष्टि संदेश।"
+  },
+  "language_change_option": "भाषा बदलें",
+  "@language_change_option": {
+    "description": "ऐप की भाषा बदलने का विकल्प।"
+  },
+  "search_hint": "यहाँ खोजें...",
+  "@search_hint": {
+    "description": "खोज बार में संकेत देने के लिए प्लेसहोल्डर टेक्स्ट।"
+  },
+  "feedback_option": "फीडबैक",
+  "@feedback_option": {
+    "description": "फीडबैक देने के लिए बटन लेबल।"
+  },
+  "rate_app_option": "हमें रेट करें",
+  "@rate_app_option": {
+    "description": "ऐप की रेटिंग देने के लिए बटन लेबल।"
+  },
+  "app_version_info": "ऐप संस्करण",
+  "@app_version_info": {
+    "description": "ऐप के वर्तमान संस्करण को दिखाने वाला लेबल।"
+  },
+  "about_app_option": "हमारे बारे में",
+  "@about_app_option": {
+    "description": "ऐप या कंपनी के बारे में जानकारी देखने के लिए लिंक।"
+  },
+  "contact_option": "संपर्क करें",
+  "@contact_option": {
+    "description": "संपर्क जानकारी देखने के लिए लिंक।"
+  },
+  "terms_option": "सेवा की शर्तें",
+  "@terms_option": {
+    "description": "सेवा की शर्तों का लिंक।"
+  },
+  "faq_option": "अक्सर पूछे जाने वाले प्रश्न",
+  "@faq_option": {
+    "description": "सामान्य प्रश्नों की सूची देखने के लिए लिंक।"
+  },
+  "feedback_thanks_message": "फीडबैक के लिए धन्यवाद!",
+  "@feedback_thanks_message": {
+    "description": "फीडबैक भेजने के बाद धन्यवाद संदेश।"
+  },
+  "password_reset_request": "पासवर्ड रीसेट लिंक भेजें",
+  "@password_reset_request": {
+    "description": "पासवर्ड रीसेट लिंक भेजने के लिए बटन लेबल।"
+  },
+  "update_available_message": "एक नया अपडेट उपलब्ध है। कृपया ऐप को अपडेट करें।",
+  "@update_available_message": {
+    "description": "जब एक नया अपडेट उपलब्ध होता है तो दिखाए जाने वाला संदेश।"
+  },
+  "maintenance_notice": "हमारे सर्वर पर रखरखाव चल रहा है। कृपया कुछ समय बाद पुनः प्रयास करें।",
+  "@maintenance_notice": {
+    "description": "जब ऐप रखरखाव में होता है तो दिखाए जाने वाला संदेश।"
+  }
+}

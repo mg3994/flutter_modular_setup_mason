@@ -61,6 +61,11 @@ scripts:
   # dependency_adder:
   #   run: dart run scripts/dependency_adder.dart
   #   description: "Add dependencies and dev_dependencies to all packages."
+
+  add_dependencies_to_packages:
+    run: |
+      melos exec --category="dependency" -- flutter pub add cupertino_icons web dio connectivity_plus intl dartz flutter_bloc json_annotation freezed_annotation hive_flutter && melos exec --category="dependency" -- flutter pub add l10n --path=../l10n  && melos exec --category="dependency" -- flutter pub add _macros --sdk=dart 
+    description: "Add dependencies to all packages in the dependency category."
     
   add_dependencies_to_features:
     run: |
@@ -94,3 +99,10 @@ scripts:
     run: |
       dart run scripts/delete_generated_files.dart && melos exec --category="l10n" -- flutter pub get && melos exec --category="l10n" -- flutter pub run intl_utils:generate 
     description: "Clean And Generate Locales"
+
+
+
+  add_dependencies_to_{{project_name}}:
+    run: |
+      melos exec --category="project" -- flutter pub add packages --path=shared/packages  && melos exec --category="project" -- flutter pub add components --path=shared/components  && melos exec --category="project" -- flutter pub add core --path=core &&  melos exec --category="project" -- flutter pub add themer --path=features/themer && melos exec --category="project" -- flutter pub add updater --path=features/updater  && melos exec --category="project" -- flutter pub add l10nr --path=features/l10nr 
+    description: "Add dependencies to all packages in the project category."
